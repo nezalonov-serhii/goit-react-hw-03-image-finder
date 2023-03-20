@@ -54,7 +54,6 @@ export class ImageGallery extends Component {
 
     fetchImages(this.props.searchName, page)
       .then(images => {
-        console.log(images);
         if (Math.ceil(images.total / 12) <= page) {
           this.setState({ toggleButton: false });
         } else {
@@ -109,8 +108,6 @@ export class ImageGallery extends Component {
     } = this.state;
 
     const { searchName } = this.props;
-
-    console.log(dataImages);
 
     return (
       <WrapGallary>
