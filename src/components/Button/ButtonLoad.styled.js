@@ -26,6 +26,9 @@ export const ButtonLoad = styled.button`
     margin-left: 10px;
   }
 
+  & .three-wrapper {
+    margin-top: 0;
+  }
   &:hover,
   &:focus {
     background-color: #303f9f;
