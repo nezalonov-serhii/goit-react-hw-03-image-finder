@@ -28,3 +28,8 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.three-wrapper {
+  margin-top: 40px;
+  justify-content: center;
+}

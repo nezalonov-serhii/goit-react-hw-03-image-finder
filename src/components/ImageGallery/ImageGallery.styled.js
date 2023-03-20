@@ -15,8 +15,4 @@ export const GalleryList = styled.ul`
 
 export const WrapGallary = styled.div`
   padding: 20px 0 40px 0;
-
-  & .three-wrapper {
-    justify-content: center;
-  }
 `;

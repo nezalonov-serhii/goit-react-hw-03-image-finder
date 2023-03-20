@@ -54,6 +54,7 @@ export class ImageGallery extends Component {
 
     fetchImages(this.props.searchName, page)
       .then(images => {
+        if (images.hits.length === 0) return;
         if (Math.ceil(images.total / 12) <= page) {
           this.setState({ toggleButton: false });
         } else {
@@ -110,34 +111,38 @@ export class ImageGallery extends Component {
     const { searchName } = this.props;
 
     return (
-      <WrapGallary>
+      <>
         {toggleLoader && page === 1 && (
           <Loader widthLoader={'200'} heightLoader={'200'} />
         )}
-        {searchName && (
-          <>
-            <GalleryList>
-              <ImageGalleryItem
-                images={dataImages}
-                modalOpen={this.modalOpen}
-              />
-            </GalleryList>
-            {toggleButton && (
-              <Button
-                clickLoadMore={this.clickLoadMore}
-                toggleLoader={toggleLoader}
+        {dataImages[0] && (
+          <WrapGallary>
+            {searchName && (
+              <>
+                <GalleryList>
+                  <ImageGalleryItem
+                    images={dataImages}
+                    modalOpen={this.modalOpen}
+                  />
+                </GalleryList>
+                {toggleButton && (
+                  <Button
+                    clickLoadMore={this.clickLoadMore}
+                    toggleLoader={toggleLoader}
+                  />
+                )}
+              </>
+            )}
+            {toggleModal && (
+              <Modal
+                url={largeImageUrl}
+                alt={largeImageAlt}
+                closeModal={this.closeModal}
               />
             )}
-          </>
+          </WrapGallary>
         )}
-        {toggleModal && (
-          <Modal
-            url={largeImageUrl}
-            alt={largeImageAlt}
-            closeModal={this.closeModal}
-          />
-        )}
-      </WrapGallary>
+      </>
     );
   }
 }
