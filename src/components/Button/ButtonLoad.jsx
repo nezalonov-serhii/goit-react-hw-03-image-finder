@@ -5,7 +5,7 @@ import { ButtonLoad } from './ButtonLoad.styled';
 
 export const Button = ({ clickLoadMore, toggleLoader }) => {
   return (
-    <ButtonLoad type="button" className="Button" onClick={clickLoadMore}>
+    <ButtonLoad type="button" disabled={toggleLoader} onClick={clickLoadMore}>
       Load more
       {toggleLoader && (
         <Loader widthLoader={'25'} heightLoader={'25'} colorLoader={'#fff'} />

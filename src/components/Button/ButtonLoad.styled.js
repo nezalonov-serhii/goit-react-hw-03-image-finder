@@ -30,4 +30,8 @@ export const ButtonLoad = styled.button`
   &:focus {
     background-color: #303f9f;
   }
+
+  &:disabled {
+    opacity: 0.5;
+  }
 `;
